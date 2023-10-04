@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment2">
+
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.mytv.ui.fragments.homeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/tvFragment"
+        android:name="com.example.mytv.ui.fragments.tvFragment"
+        android:label="fragment_tv"
+        tools:layout="@layout/fragment_tv" />
+    <fragment
+        android:id="@+id/filmFragment"
+        android:name="com.example.mytv.ui.fragments.filmFragment"
+        android:label="fragment_film"
+        tools:layout="@layout/fragment_film" />
+    <fragment
+        android:id="@+id/hbogoFragment"
+        android:name="com.example.mytv.ui.fragments.hbogoFragment"
+        android:label="fragment_hbogo"
+        tools:layout="@layout/fragment_hbogo" />
+    <fragment
+        android:id="@+id/differentFragment"
+        android:name="com.example.mytv.ui.fragments.differentFragment"
+        android:label="fragment_different"
+        tools:layout="@layout/fragment_different" />
+</navigation>

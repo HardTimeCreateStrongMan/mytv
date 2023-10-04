@@ -1,0 +1,69 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.filmFragment">
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/icon_mytv"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/mytvlogo"></ImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_search"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_toStartOf="@id/profileToolbar"
+                android:src="@drawable/search_solid"></ImageView>
+
+            <ImageView
+                android:id="@+id/profileToolbar"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/profileicon"></ImageView>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/channelCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorHeight="0dp"
+        app:tabGravity="center"
+        app:tabMode="scrollable"
+        android:layout_marginTop="55dp"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/orange"
+        app:tabBackground="@color/black"
+        >
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/channel_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="110dp">
+
+<!--    <GridLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:columnCount="3"-->
+<!--        android:layout_gravity="fill"-->
+<!--        android:layout_marginTop="200dp"></GridLayout>-->
+    </androidx.recyclerview.widget.RecyclerView>
+
+</FrameLayout>
