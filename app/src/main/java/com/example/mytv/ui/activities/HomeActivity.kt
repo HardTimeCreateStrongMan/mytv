@@ -18,8 +18,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_home)
 
-        val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
-        val imageList = ArrayList<SlideModel>()
+      //  val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
+     //   val imageList = ArrayList<SlideModel>()
 
         //imageList.add(SlideModel())
         // imageSlider.setImageList(imageList, Scaletypes.FIT)

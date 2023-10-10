@@ -5,42 +5,45 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mytv.R
 import com.example.mytv.data.model.Category
 import com.example.mytv.data.model.Channel
+import com.example.mytv.data.model.home.DataXXX
+import com.example.mytv.data.model.home.ServiceResponse
 import com.example.mytv.databinding.FragmentFilmBinding
 import com.example.mytv.databinding.ItemChannelBinding
 
-class ChannelAdapter(private var channels: List<Channel>) : RecyclerView.Adapter<ChannelAdapter.ChannelViewHolder>() {
-    private lateinit var onItemClick: OnItemCategoryClicked
-
-    inner class ChannelViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val ivChannelItem: ImageView = itemView.findViewById(R.id.testing)
+class HomeContentAdapter (private val trailers: List<DataXXX>) : RecyclerView.Adapter<HomeContentAdapter.HomeViewHolder>() {
+    inner class HomeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        val ivSubContentCategory: ImageView = itemView.findViewById(R.id.ivSubContentCategory)
+        val tvSubContentCategory: TextView = itemView.findViewById(R.id.tvSubContentCategory)
     }
     @SuppressLint("NotifyDataSetChanged")
 
     fun onItemClicked(onItemClick: OnItemCategoryClicked){
-        this.onItemClick = onItemClick
+        //this.onItemClick = onItemClick
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChannelViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_channel, parent, false)
-        return ChannelViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.moviereplay, parent, false)
+        return HomeViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ChannelViewHolder, position: Int) {
-            Glide.with(holder.itemView)
-                .load(channels[position].imgSrc)
-                .into(holder.ivChannelItem)
-        }
+    override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
+
+        Glide.with(holder.itemView)
+            .load(trailers[position].imgSrc)
+            .into(holder.ivSubContentCategory)
+    }
 
 
     override fun getItemCount(): Int {
-        return channels.size
+        return trailers.size
     }
 
 //    fun submitList(channels: List<Channel>?) {

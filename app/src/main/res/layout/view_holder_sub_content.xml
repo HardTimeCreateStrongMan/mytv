@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:layout_marginEnd="@dimen/_8sdp"
     app:cardCornerRadius="@dimen/_4sdp"
     app:layout_constraintDimensionRatio="16:9"
     android:layout_width="@dimen/_128sdp"
@@ -14,14 +15,13 @@
         android:layout_height="match_parent">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ivSubContentCategory"
+            android:layout_height="wrap_content" android:id="@+id/ivSubContentCategory"
             android:scaleType="center"
-            android:layout_weight="1"/>
+            android:contentDescription="TODO" android:layout_weight="1"/>
         <TextView
 
             android:background="@android:color/transparent"
-            android:text="TextViedw"
+            android:text="TextView"
             android:singleLine="true"
             android:textColor="@color/white"
             android:layout_width="match_parent"

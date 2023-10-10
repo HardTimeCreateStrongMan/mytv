@@ -9,14 +9,18 @@ import com.example.mytv.data.model.Category
 import com.example.mytv.data.model.CategoryResponse
 import com.example.mytv.data.model.Channel
 import com.example.mytv.data.model.ChannelResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 class FilmViewModel: ViewModel() {
     private val _status = MutableLiveData<String>()
     var categories = MutableLiveData<List<Category>>()
-    var channels = MutableLiveData<List<Channel>>()
+
+    private var _channels = MutableLiveData<List<Channel>>()
+    var channels: LiveData<List<Channel>> = _channels
+
+
     val status: LiveData<String> = _status
     init{
         getCategory()
@@ -33,6 +37,7 @@ class FilmViewModel: ViewModel() {
                     response.body()?.let{
                         Log.i("testlan2","onResponse: ${response.body()}")
                     }
+                    _channels.postValue(response.body()?.channels)
                 }
             }
 

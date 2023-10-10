@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.homeFragment">
+    android:background="@color/black"
+    tools:context=".ui.fragments.homeFragment"> <!-- Thêm thuộc tính này -->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <!-- TODO: Update blank fragment layout -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -42,49 +46,23 @@
     </androidx.appcompat.widget.Toolbar>
 
     <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/imageSlider"
+        android:id="@+id/image_slider"
         android:layout_width="wrap_content"
         android:layout_height="210dp"
         app:iss_auto_cycle="true"
         app:iss_corner_radius="5"
         app:iss_delay="0"
-        android:layout_marginTop="55dp"
         app:iss_error_image="@android:color/darker_gray"
         app:iss_period="1000"
         app:iss_placeholder="@android:color/darker_gray"
         app:iss_selected_dot="@drawable/default_selected_dot"
         app:iss_unselected_dot="@drawable/default_unselected_dot"
         tools:ignore="MissingContraints" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/live_event"
-        android:text = "Sự Kiện Trực Tiếp"
-        android:textColor="@color/black"
-        android:layout_marginTop = "280dp"
-        android:textSize = "23dp"
-        android:textStyle="bold"></TextView>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/live_event_slider"
+        android:id="@+id/CategoryName"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop = "320dp"
-        android:layout_marginEnd="10dp"
-         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/phim"
-        android:text = "Phim Song Song"
-        android:textColor="@color/black"
-        android:layout_marginTop = "460dp"
-
-        android:textSize = "23dp"
-        android:textStyle="bold"></TextView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/film_slider"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop = "500dp"
-        android:layout_marginEnd="10dp" />
-</FrameLayout>
+        android:layout_height="match_parent"
+    android:nestedScrollingEnabled = "false"
+    android:scaleType="fitXY"/>
+</LinearLayout>
+    </ScrollView>

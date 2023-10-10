@@ -24,13 +24,13 @@ import com.google.android.material.tabs.TabLayout
 class filmFragment : Fragment() {
     private lateinit var binding:FragmentFilmBinding
     private lateinit var filmMVVM: FilmViewModel
-    private lateinit var myAdapter:ChannelAdapter
     private lateinit var  tlChannelCategories: TabLayout
     private lateinit var rvChannel: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         filmMVVM = ViewModelProviders.of(this)[FilmViewModel::class.java]
+
     }
 
     override fun onCreateView(
@@ -39,16 +39,17 @@ class filmFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_film, container, false)
+        this.rvChannel = view.findViewById(R.id.channel_display)
+        this.rvChannel.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+        this.rvChannel.setHasFixedSize(true)
+        prepareRecyclerView()
         setID(view)
         setData()
-        //binding = FragmentFilmBinding.inflate(inflater, container, false)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.rvChannel = view.findViewById(R.id.channel_display)
-        rvChannel.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
         prepareRecyclerView()
 
     }
@@ -77,8 +78,10 @@ class filmFragment : Fragment() {
     private fun prepareRecyclerView(){
         filmMVVM.channels.observe(viewLifecycleOwner){
             val channels = it
-            val channelAdapter = ChannelAdapter(it)
+            val channelAdapter = ChannelAdapter(channels)
             rvChannel.adapter = channelAdapter
+//            channelAdapter.submitList(it)
+
         }
     }
 

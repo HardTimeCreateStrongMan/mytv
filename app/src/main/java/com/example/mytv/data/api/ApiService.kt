@@ -2,16 +2,29 @@ package com.example.mytv.data.api
 
 import com.example.mytv.data.model.CategoryResponse
 import com.example.mytv.data.model.ChannelResponse
-import retrofit2.http.Body
+import com.example.mytv.data.model.film.phim
+import com.example.mytv.data.model.home.ServiceTotal
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
+import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.PartMap
+import retrofit2.http.QueryMap
+
 
 private val retrofit = Retrofit.Builder()
     .baseUrl("https://b2cstage2.mytv.vn/v8/")
+    .client(OkHttpClient.Builder()
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        })
+        .build())
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
@@ -37,8 +50,9 @@ interface ApiService {
     suspend fun getContent()
 
     @Headers(CONTENT_TYPE)
+    @FormUrlEncoded
     @POST("home-page1-v2")
-    suspend fun test()
+    fun getCategoryHomeName(@FieldMap params: HashMap<String, String>  ): Call<ServiceTotal>
 
     @Headers(CONTENT_TYPE)
     @POST("channel/category-v2")
@@ -49,8 +63,10 @@ interface ApiService {
     fun getChannel(@Body payload: String): Call<ChannelResponse>
 
     @Headers(CONTENT_TYPE)
+    @FormUrlEncoded
+
     @POST("content/home")
-    suspend fun test4()
+    fun getTabMovie(@FieldMap params: HashMap<String, String>  ): Call<phim>
 
     @Headers(CONTENT_TYPE)
     @POST("account/info-v5")

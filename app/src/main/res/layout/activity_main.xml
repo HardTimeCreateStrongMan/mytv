@@ -13,6 +13,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background = "@color/black"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +21,40 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/nav_graph" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black"
+        tools:ignore="MissingConstraints">
 
+        <ImageView
+            android:id="@+id/icon_mytv"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/mytvlogo"></ImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_search"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_toStartOf="@id/profileToolbar"
+                android:src="@drawable/search_solid"></ImageView>
+
+            <ImageView
+                android:id="@+id/profileToolbar"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/profileicon"></ImageView>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -35,12 +69,4 @@
         app:itemRippleColor="@color/orange"
         app:itemIconTint="@color/white"
         app:menu="@menu/btn_menu" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="41dp"
-        android:layout_height="197dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="163dp"
-        android:id="@+id/live_event"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frag_host"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
