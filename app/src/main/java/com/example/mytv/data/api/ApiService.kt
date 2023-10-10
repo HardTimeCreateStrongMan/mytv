@@ -63,11 +63,10 @@ interface ApiService {
     fun getChannel(@Body payload: String): Call<ChannelResponse>
 
     @Headers(CONTENT_TYPE)
-    @FormUrlEncoded
 
     @POST("content/home")
-    fun getTabMovie(@FieldMap params: HashMap<String, String>  ): Call<phim>
-
+//    fun getTabMovie(@FieldMap params: HashMap<String, String>  ): Call<phim>
+    fun getTabMovie(@Body payload: String): Call<phim>
     @Headers(CONTENT_TYPE)
     @POST("account/info-v5")
     suspend fun test5()
